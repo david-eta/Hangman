@@ -5,8 +5,7 @@ from PyQt5.QtGui import *#(QIcon, QPixmap, QFont, QRegExpValidator)
 from random import *#choice
 from time import sleep
 
-WORDS = ['Captivity']
-''', 'America', 'Europe', 'Federal', 'Gluten', 'Ridiculous', 'Automatic', 'Television', 'Difficult', 'Severe', 'Interesting','Indonesia',
+WORDS = ['Captivity', 'America', 'Europe', 'Federal', 'Gluten', 'Ridiculous', 'Automatic', 'Television', 'Difficult', 'Severe', 'Interesting','Indonesia',
 'Industrial', 'Automotive', 'President', 'Terrestrial', 'Academic', 'Comedic', 'Comical', 'Genuine',
 'Suitcase', 'Vietnam', 'Achievement', 'Careless', 'Monarchy', 'Monetary',  'Quarantine', 'Supernatural',
 'Illuminate', 'Optimal', 'Application', 'Scientist', 'Software', 'Hardware', 'Program', 'Colonial', 'Algorithm',
@@ -14,7 +13,7 @@ WORDS = ['Captivity']
 'Dictionary', 'Keyboard', 'China', 'London', 'Jamaica', 'Biology', 'Chemistry', 'History', 'Historian', 
 'Africa', 'Mathematics', 'Computer', 'Literature', 'Gravity', 'Guitar', 'Violin', 'Illuminate', 'England', 
 'China', 'Japan', 'Canada', 'Suitcase', 'Wireless', 'Internet']
-'''
+
 HANGMAN_PARMS = 100, 200, Qt.KeepAspectRatio, Qt.FastTransformation
 
 class hangman(QWidget):
@@ -36,7 +35,7 @@ class hangman(QWidget):
         self.GameTitle.setFont(QFont('Chiller', 60))
         self.GameTitle.move(130, 10)
         
-        self.number = 1
+        self.number = 0
         #The first  picture that shows up
         self.image = QLabel(self)
         self.image.setPixmap(QPixmap('Hangman{}.png'.format(self.number)))
@@ -166,7 +165,7 @@ class hangman(QWidget):
                 #self.blank_word.setVisible(False)
 
     def replay(self):
-        self.number = 1
+        self.number = 0
         self.image.setPixmap(QPixmap('Hangman{}.png'.format(self.number)))
         self.word = choice(WORDS)
         blank_word = '_ ' * len(self.word)
